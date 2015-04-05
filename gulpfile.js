@@ -13,7 +13,7 @@ var files = {
 	distDir: './dist/',
 	src: [
 		'./src/wgCart.js',
-		'./src/wgCart.derectives.js',
+		'./src/wgCart.directives.js',
 		'./src/wgCart.fulfilment.js'
 	],
 	dest: {
