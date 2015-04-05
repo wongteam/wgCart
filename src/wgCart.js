@@ -18,8 +18,8 @@ angular.module('wgCart', ['wgCart.directives'])
             wgCart.$save();
         });
 
-        if (angular.isObject(store.get(this.getCartName()))) {
-            wgCart.$restore(store.get(this.getCartName()));
+        if (angular.isObject(store.get(wgCart.getCartName()))) {
+            wgCart.$restore(store.get(wgCart.getCartName()));
 
         } else {
             wgCart.init();
@@ -158,7 +158,7 @@ angular.module('wgCart', ['wgCart.directives'])
         };
 
         this.empty = function () {
-            
+
             $rootScope.$broadcast('wgCart:change', {});
             this.$cart.items = [];
             localStorage.removeItem(this.getCartName());
