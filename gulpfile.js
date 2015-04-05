@@ -14,7 +14,8 @@ var files = {
 	src: [
 		'./src/wgCart.js',
 		'./src/wgCart.directives.js',
-		'./src/wgCart.fulfilment.js'
+		'./src/wgCart.fulfilment.js',
+		'./src/module.js'
 	],
 	dest: {
 		dev: 'wgCart.js',
