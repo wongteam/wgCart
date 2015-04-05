@@ -1,7 +1,7 @@
 'use strict';
 
-describe('ngCart module', function() {
-    beforeEach(module('ngCart'));
+describe('wgCart module', function() {
+    beforeEach(module('wgCart'));
 
 
     describe('value - version', function() {
@@ -20,13 +20,13 @@ describe('ngCart module', function() {
             $controller = _$controller_;
         }));
 
-        describe('$scope.ngCart', function() {
+        describe('$scope.wgCart', function() {
 
             var $scope;
             var controller;
 
             function addItem(id, name, price, quantity, data){
-                $scope.ngCart.addItem(id, name, price, quantity, data);
+                $scope.wgCart.addItem(id, name, price, quantity, data);
             }
 
             beforeEach(function() {
@@ -35,32 +35,32 @@ describe('ngCart module', function() {
 
             });
 
-            it('sets instance of ngCart to scope', function() {
-                expect(typeof $scope.ngCart).toEqual('object');
+            it('sets instance of wgCart to scope', function() {
+                expect(typeof $scope.wgCart).toEqual('object');
             });
 
 
             it('should be able to add an item', function() {
                 addItem(1, 'Test Item', 10, 2);
-                expect($scope.ngCart.getItems().length).toEqual(1);
+                expect($scope.wgCart.getItems().length).toEqual(1);
             });
 
 
              it('should be able to empty', function() {
-                $scope.ngCart.empty();
-                expect($scope.ngCart.getItems().length).toEqual(0);
+                $scope.wgCart.empty();
+                expect($scope.wgCart.getItems().length).toEqual(0);
             });
 
 
 
 
-            describe('ngCart', function() {
+            describe('wgCart', function() {
 
 
                 beforeEach(function(){
 
-                    $scope.ngCart.setTaxRate(7.5);
-                    $scope.ngCart.setShipping(12.50);
+                    $scope.wgCart.setTaxRate(7.5);
+                    $scope.wgCart.setShipping(12.50);
                     addItem(1, 'Work boots', 189.99, 1);
                     addItem(2, 'Hockey gloves', 85, 2);
                     addItem('cpBow', 'Compound bow', 499.95, 1);
@@ -69,64 +69,64 @@ describe('ngCart module', function() {
 
 
                 it('tax should be set', function() {
-                    expect($scope.ngCart.getTaxRate()).toEqual(7.5);
+                    expect($scope.wgCart.getTaxRate()).toEqual(7.5);
                 });
 
                 it('shipping should be set', function() {
-                    expect($scope.ngCart.getShipping()).toEqual(12.50);
+                    expect($scope.wgCart.getShipping()).toEqual(12.50);
                 });
 
                 it('tax charge should be ', function() {
-                    expect($scope.ngCart.getTax()).toEqual(64.5);
+                    expect($scope.wgCart.getTax()).toEqual(64.5);
                 });
 
                 it('count items in total', function() {
-                    expect($scope.ngCart.getTotalItems()).toEqual(4);
+                    expect($scope.wgCart.getTotalItems()).toEqual(4);
                 });
 
                 it('count unique items in cart', function() {
-                    expect($scope.ngCart.getTotalUniqueItems()).toEqual(3);
+                    expect($scope.wgCart.getTotalUniqueItems()).toEqual(3);
                 });
 
 
                 it('check getItems has correct number of items', function() {
-                    expect($scope.ngCart.getItems().length).toEqual(3);
+                    expect($scope.wgCart.getItems().length).toEqual(3);
                 });
 
                 it('Have correct getSubTotal', function() {
-                    expect($scope.ngCart.getSubTotal()).toEqual(859.94);
+                    expect($scope.wgCart.getSubTotal()).toEqual(859.94);
                 });
 
 
                 it('Have correct totalCost', function() {
-                    expect($scope.ngCart.totalCost()).toEqual(936.94);
+                    expect($scope.wgCart.totalCost()).toEqual(936.94);
                 });
 
 
                 it('find item by id (by int) ', function() {
-                    expect($scope.ngCart.getItemById(2).getName()).toEqual('Hockey gloves');
+                    expect($scope.wgCart.getItemById(2).getName()).toEqual('Hockey gloves');
                 });
 
 
                 it('find item by id (by string) ', function() {
-                    expect($scope.ngCart.getItemById('cpBow').getName()).toEqual('Compound bow');
+                    expect($scope.wgCart.getItemById('cpBow').getName()).toEqual('Compound bow');
                 });
 
 
                 it('remove item by ID', function() {
-                    $scope.ngCart.removeItemById('cpBow');
-                    expect($scope.ngCart.getItemById('cpBow')).toEqual(false);
-                    expect($scope.ngCart.getTotalUniqueItems()).toEqual(2);
+                    $scope.wgCart.removeItemById('cpBow');
+                    expect($scope.wgCart.getItemById('cpBow')).toEqual(false);
+                    expect($scope.wgCart.getTotalUniqueItems()).toEqual(2);
                 });
 
 
                 it('remove item by ID', function() {
-                    $scope.ngCart.removeItemById('cpBow');
-                    expect($scope.ngCart.getItemById('cpBow')).toEqual(false);
+                    $scope.wgCart.removeItemById('cpBow');
+                    expect($scope.wgCart.getItemById('cpBow')).toEqual(false);
                 });
 
                 it('should create an object', function() {
-                    var obj =  $scope.ngCart.toObject();
+                    var obj =  $scope.wgCart.toObject();
                     expect(obj.shipping).toEqual( 12.50 );
                     expect(obj.tax).toEqual( 64.5 );
                     expect(obj.taxRate).toEqual( 7.5 );
@@ -138,53 +138,53 @@ describe('ngCart module', function() {
 
             });
 
-            describe('ngCartItem', function() {
+            describe('wgCartItem', function() {
 
-                var ngCartItem;
+                var wgCartItem;
 
                 beforeEach(function(){
                     addItem('lRope', 'Lariat rope', 39.99);
-                    ngCartItem = $scope.ngCart.getItemById('lRope');
+                    wgCartItem = $scope.wgCart.getItemById('lRope');
                 });
 
 
                 it('should have correct Name', function() {
-                    expect(ngCartItem.getName()).toEqual('Lariat rope');
+                    expect(wgCartItem.getName()).toEqual('Lariat rope');
                 });
 
                 it('should default quantity to 1', function() {
-                    expect(ngCartItem.getQuantity()).toEqual(1);
+                    expect(wgCartItem.getQuantity()).toEqual(1);
                 });
 
                 it('should update quantity', function() {
-                    expect(ngCartItem.getName()).toEqual('Lariat rope');
+                    expect(wgCartItem.getName()).toEqual('Lariat rope');
                 });
 
                 it('should absolutely update quantity', function() {
-                    expect(ngCartItem.getQuantity()).toEqual(1);
-                    ngCartItem.setQuantity(5);
-                    expect(ngCartItem.getQuantity()).toEqual(5);
+                    expect(wgCartItem.getQuantity()).toEqual(1);
+                    wgCartItem.setQuantity(5);
+                    expect(wgCartItem.getQuantity()).toEqual(5);
                 });
 
                 it('should relatively update quantity', function() {
-                    expect(ngCartItem.getQuantity()).toEqual(1);
-                    ngCartItem.setQuantity(1, true);
-                    expect(ngCartItem.getQuantity()).toEqual(2);
+                    expect(wgCartItem.getQuantity()).toEqual(1);
+                    wgCartItem.setQuantity(1, true);
+                    expect(wgCartItem.getQuantity()).toEqual(2);
                 });
 
 
                 it('should get total', function() {
-                    expect(ngCartItem.getTotal()).toEqual(39.99);
+                    expect(wgCartItem.getTotal()).toEqual(39.99);
                 });
 
                 it('should update total after quantity change', function() {
-                    ngCartItem.setQuantity(1, true);
-                    expect(ngCartItem.getTotal()).toEqual( 79.98 );
+                    wgCartItem.setQuantity(1, true);
+                    expect(wgCartItem.getTotal()).toEqual( 79.98 );
                 });
 
 
                 it('should create an object', function() {
-                    var obj = ngCartItem.toObject();
+                    var obj = wgCartItem.toObject();
                     expect(obj.id).toEqual( 'lRope' );
                     expect(obj.name).toEqual( 'Lariat rope' );
                     expect(obj.price).toEqual( 39.99 );
@@ -203,44 +203,44 @@ describe('ngCart module', function() {
 
 
 
-    describe('ngCartItem', function() {
+    describe('wgCartItem', function() {
 
-        //var ngCartItem;
+        //var wgCartItem;
         //
-        //beforeEach(inject(function(_ngCartItem_){
+        //beforeEach(inject(function(_wgCartItem_){
         //    // The injector unwraps the underscores (_) from around the parameter names when matching
         //
         //
         //    var $rootScope = {};
-        //     ngCartItem = _ngCartItem_('ngCartItem', { $rootScope: $rootScope });
+        //     wgCartItem = _wgCartItem_('wgCartItem', { $rootScope: $rootScope });
         //
         //}));
         //
-        //describe('$scope.ngCart', function() {
+        //describe('$scope.wgCart', function() {
         //
-        //    it('sets instance of ngCart to scope', function() {
-        //       console.log( ngCartItem);
-        //        expect(ngCartItem.getQuantity()).toEqual(1);
+        //    it('sets instance of wgCart to scope', function() {
+        //       console.log( wgCartItem);
+        //        expect(wgCartItem.getQuantity()).toEqual(1);
         //    });
         //
         //});
     });
 
-    describe('ngCart', function() {
+    describe('wgCart', function() {
 
         //var $service;
         //
-        //beforeEach(inject(function(_ngCartService_){
+        //beforeEach(inject(function(_wgCartService_){
         //    // The injector unwraps the underscores (_) from around the parameter names when matching
-        //    $service = _ngCartService_;
+        //    $service = _wgCartService_;
         //}));
         //
-        //describe('ngCart.init', function() {
+        //describe('wgCart.init', function() {
         //
         //    console.log ($service)
-        //    it('sets instance of ngCart to scope', function() {
+        //    it('sets instance of wgCart to scope', function() {
         //        var $scope = {};
-        //        //var service = $service('ngCart', { $scope: $scope });
+        //        //var service = $service('wgCart', { $scope: $scope });
         //
         //        //expect('object').toEqual('object');
         //    });

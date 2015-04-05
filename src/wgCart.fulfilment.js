@@ -1,5 +1,5 @@
 
-angular.module('ngCart.fulfilment', [])
+angular.module('wgCart.fulfilment', [])
     .service('fulfilmentProvider', ['$injector', function($injector){
 
         this._obj = {
@@ -16,7 +16,7 @@ angular.module('ngCart.fulfilment', [])
         };
 
         this.checkout = function(){
-            var provider = $injector.get('ngCart.fulfilment.' + this._obj.service);
+            var provider = $injector.get('wgCart.fulfilment.' + this._obj.service);
               return provider.checkout(this._obj.settings);
 
         }
@@ -24,15 +24,15 @@ angular.module('ngCart.fulfilment', [])
     }])
 
 
-.service('ngCart.fulfilment.log', ['$q', '$log', 'ngCart', function($q, $log, ngCart){
+.service('wgCart.fulfilment.log', ['$q', '$log', 'wgCart', function($q, $log, wgCart){
 
         this.checkout = function(){
 
             var deferred = $q.defer();
 
-            $log.info(ngCart.toObject());
+            $log.info(wgCart.toObject());
             deferred.resolve({
-                cart:ngCart.toObject()
+                cart:wgCart.toObject()
             });
 
             return deferred.promise;
@@ -41,16 +41,16 @@ angular.module('ngCart.fulfilment', [])
 
  }])
 
-.service('ngCart.fulfilment.http', ['$http', 'ngCart', function($http, ngCart){
+.service('wgCart.fulfilment.http', ['$http', 'wgCart', function($http, wgCart){
 
         this.checkout = function(settings){
             return $http.post(settings.url,
-                {data:ngCart.toObject()})
+                {data:wgCart.toObject()})
         }
  }])
 
 
-.service('ngCart.fulfilment.paypal', ['$http', 'ngCart', function($http, ngCart){
+.service('wgCart.fulfilment.paypal', ['$http', 'wgCart', function($http, wgCart){
 
 
 }]);

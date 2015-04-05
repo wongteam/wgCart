@@ -1,13 +1,13 @@
 'use strict';
 
 
-angular.module('ngCart.directives', ['ngCart.fulfilment'])
+angular.module('wgCart.directives', ['wgCart.fulfilment'])
 
-    .controller('CartController',['$scope', 'ngCart', function($scope, ngCart) {
-        $scope.ngCart = ngCart;
+    .controller('CartController',['$scope', 'wgCart', function($scope, wgCart) {
+        $scope.wgCart = wgCart;
     }])
 
-    .directive('ngcartAddtocart', ['ngCart', function(ngCart){
+    .directive('wgcartAddtocart', ['wgCart', function(wgCart){
         return {
             restrict : 'E',
             controller : 'CartController',
@@ -20,15 +20,15 @@ angular.module('ngCart.directives', ['ngCart.fulfilment'])
                 data:'='
             },
             transclude: true,
-            templateUrl: 'template/ngCart/addtocart.html',
+            templateUrl: 'template/wgCart/addtocart.html',
             link:function(scope, element, attrs){
                 scope.attrs = attrs;
                 scope.inCart = function(){
-                    return  ngCart.getItemById(attrs.id);
+                    return  wgCart.getItemById(attrs.id);
                 };
 
                 if (scope.inCart()){
-                    scope.q = ngCart.getItemById(attrs.id).getQuantity();
+                    scope.q = wgCart.getItemById(attrs.id).getQuantity();
                 } else {
                     scope.q = parseInt(scope.quantity);
                 }
@@ -43,33 +43,33 @@ angular.module('ngCart.directives', ['ngCart.fulfilment'])
         };
     }])
 
-    .directive('ngcartCart', [function(){
+    .directive('wgcartCart', [function(){
         return {
             restrict : 'E',
             controller : 'CartController',
             scope: {},
-            templateUrl: 'template/ngCart/cart.html',
+            templateUrl: 'template/wgCart/cart.html',
             link:function(scope, element, attrs){
 
             }
         };
     }])
 
-    .directive('ngcartSummary', [function(){
+    .directive('wgcartSummary', [function(){
         return {
             restrict : 'E',
             controller : 'CartController',
             scope: {},
             transclude: true,
-            templateUrl: 'template/ngCart/summary.html'
+            templateUrl: 'template/wgCart/summary.html'
         };
     }])
 
-    .directive('ngcartCheckout', [function(){
+    .directive('wgcartCheckout', [function(){
         return {
             restrict : 'E',
-            controller : ('CartController', ['$scope', 'ngCart', 'fulfilmentProvider', function($scope, ngCart, fulfilmentProvider) {
-                $scope.ngCart = ngCart;
+            controller : ('CartController', ['$scope', 'wgCart', 'fulfilmentProvider', function($scope, wgCart, fulfilmentProvider) {
+                $scope.wgCart = wgCart;
 
                 $scope.checkout = function () {
                     fulfilmentProvider.setService($scope.service);
@@ -83,6 +83,6 @@ angular.module('ngCart.directives', ['ngCart.fulfilment'])
                 settings:'='
             },
             transclude: true,
-            templateUrl: 'template/ngCart/checkout.html'
+            templateUrl: 'template/wgCart/checkout.html'
         };
     }]);
