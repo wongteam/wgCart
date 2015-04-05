@@ -1,41 +1,40 @@
 {
-  "name": "ngCart",
+  "name": "wgCart",
   "private": false,
-  "version": "0.0.3-rc.1",
+  "version": "0.0.1",
   "description": "Really simple shopping cart for AngularJS",
   "license": "MIT",
   "tags": "AngularJS, directive, module, shopping cart, shopping basket",
   "repository": {
     "type": "git",
-    "url": "https://github.com/snapjay/ngcart.git"
+    "url": "https://github.com/wongteam/wgCart.git"
   },
   "path": {
     "app": "app"
   },
   "author": {
-    "name": "Dan Shreim",
-    "email": "dan@snapjay.com",
-    "url": "http://www.snapjay.com/"
+    "name": "Ivan Wong",
+    "email": "mail@iwong.me",
+    "url": "https://iwong.me"
   },
   "devDependencies": {
-    "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-uglify": "~0.2.2",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "protractor": "~0.20.1",
     "bower": "^1.3.1",
-    "shelljs": "^0.2.6",
-    "karma-junit-reporter": "^0.2.2",
     "gulp": "~3.8.7",
+    "gulp-concat": "^2.5.2",
     "gulp-less": "~1.3.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-run-sequence": "^0.3.2",
+    "gulp-uglify": "^1.1.0",
     "gulp-watch": "~0.6.9",
-    "grunt": "~0.4.5",
-    "karma-jasmine": "~0.1.5",
-    "karma-firefox-launcher": "~0.1.3",
+    "http-server": "~0.6.1",
     "karma-chrome-launcher": "~0.1.4",
+    "karma-firefox-launcher": "~0.1.3",
+    "karma-jasmine": "~0.1.5",
+    "karma-junit-reporter": "^0.2.2",
     "karma-phantomjs-launcher": "~0.1.4",
-    "grunt-karma": "~0.9.0",
-    "http-server": "~0.6.1"
+    "protractor": "~0.20.1",
+    "run-sequence": "^1.0.2",
+    "shelljs": "^0.2.6"
   },
   "scripts": {
     "postinstall": "bower install",

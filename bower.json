@@ -1,13 +1,13 @@
 {
-  "name": "ngCart",
-  "description": "Shopping Cart built for AngularJS",
+  "name": "wgCart",
+  "description": "wgCart is a fork of ngCart - shopping cart build for angular",
   "keywords": ["AngularJS", "module", "directive", "shopping cart", "e-commerce", "cart", "basket", "shopping"],
-  "authors": {"name":"Dan Shreim", "email":"dan@snapjay.com>", "homepage":"http://www.snapjay.com/"},
+  "authors": {"name":"Ivan Wong", "email":"mail@iwong.me", "homepage":"https://iwong.me"},
   "version": "0.0.3-rc.1",
-  "homepage": "http://ngcart.snapjay.com",
+  "homepage": "http://iwong.me",
   "license": "MIT",
-  "main": "dist/ngCart.js",
-  "private": false,
+  "main": "dist/wgCart.js",
+  "private": true,
   "ignore": [
     ".travis.yml"
   ],
