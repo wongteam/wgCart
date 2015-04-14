@@ -37,7 +37,7 @@ angular.module('wgCart', ['wgCart.directives'])
                 items : []
             };
 			// also key name in local storage
-			this.cartName = 'cart';
+			this.cartName = this.getCartName();
         };
 
         this.addItem = function (id, name, price, quantity, data) {
@@ -71,6 +71,7 @@ angular.module('wgCart', ['wgCart.directives'])
 		// change cart mode
         this.setCartName = function(name) {
 			this.cartName = name;
+            this.init();
 		};
 
 		this.getCartName = function() {
